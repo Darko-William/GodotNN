@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8es4p17p1j4x"]
+
+[ext_resource type="Script" uid="uid://d1drg302s2f6u" path="res://rich_text_label.gd" id="1_fyqef"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchor_right = 0.623
+anchor_bottom = 0.656
+offset_right = 0.303955
+offset_bottom = 3.91199
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.093
+offset_right = 0.245972
+offset_bottom = 411.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Train"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+fit_content = true
+script = ExtResource("1_fyqef")
+
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Button" to="Control/MarginContainer/VBoxContainer/RichTextLabel" method="_on_button_pressed"]

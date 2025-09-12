@@ -1,0 +1,107 @@
+[gd_scene load_steps=12 format=3 uid="uid://bj448p51ef2mt"]
+
+[ext_resource type="Script" uid="uid://b47tfmjs3nnqj" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://vehfgyjj4b08" path="res://xr_origin.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://boaio0nf6r0rs" path="res://neuron.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="4_272bh"]
+[ext_resource type="PackedScene" uid="uid://b8es4p17p1j4x" path="res://ui.tscn" id="5_lquwl"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_h2yge"]
+sky_material = SubResource("ProceduralSkyMaterial_0xm2m")
+
+[sub_resource type="Environment" id="Environment_1bvp3"]
+background_mode = 2
+sky = SubResource("Sky_h2yge")
+tonemap_mode = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7dm0k"]
+size = Vector3(5, 0.1, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ig7tw"]
+size = Vector3(5, 0.1, 5)
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_0xm2m")
+
+[node name="PickableObject" parent="." instance=ExtResource("2_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19238, 1.00008, -1.04301)
+mass = 1000.0
+gravity_scale = 0.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1bvp3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_7dm0k")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
+mesh = SubResource("BoxMesh_ig7tw")
+
+[node name="XROrigin3D" parent="." instance=ExtResource("1_ig7tw")]
+
+[node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("4_272bh")]
+
+[node name="PickableObject2" parent="." instance=ExtResource("2_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19238, 0.687991, -1.04301)
+mass = 1000.0
+gravity_scale = 0.0
+
+[node name="PickableObject3" parent="." instance=ExtResource("2_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 0.9999, 0.0141716, 0, -0.0141716, 0.9999, 0.19238, 1.28852, -0.452391)
+gravity_scale = 0.0
+
+[node name="PickableObject4" parent="." instance=ExtResource("2_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19238, 1.2547, -1.0697)
+mass = 1000.0
+gravity_scale = 0.0
+
+[node name="PickableObject5" parent="." instance=ExtResource("2_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19238, 0.96605, -0.48416)
+gravity_scale = 0.0
+
+[node name="PickableObject6" parent="." instance=ExtResource("2_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19238, 1.59688, -0.469077)
+gravity_scale = 0.0
+
+[node name="PickableObject7" parent="." instance=ExtResource("2_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19238, 0.441861, -1.06623)
+mass = 1000.0
+gravity_scale = 0.0
+
+[node name="PickableObject8" parent="." instance=ExtResource("2_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19238, 0.441861, 0.179331)
+gravity_scale = 0.0
+
+[node name="PickableObject9" parent="." instance=ExtResource("2_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19238, 0.630187, -0.496824)
+gravity_scale = 0.0
+
+[node name="PickableObject10" parent="." instance=ExtResource("2_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15166, 0.248711, -0.494832)
+gravity_scale = 0.0
+
+[node name="PickableObject11" parent="." instance=ExtResource("2_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19238, 0.934338, 0.176672)
+gravity_scale = 0.0
+
+[node name="PickableObject12" parent="." instance=ExtResource("2_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19238, 1.36466, 0.18254)
+gravity_scale = 0.0
+
+[node name="Viewport2Din3D" parent="." instance=ExtResource("4_1bvp3")]
+transform = Transform3D(3.11142e-05, 0, 0.000999516, 0, 0.001, 0, -0.000999516, 0, 3.11142e-05, -1.21795, 0.461022, -0.0462444)
+screen_size = Vector2(1280, 768)
+scene = ExtResource("5_lquwl")
+viewport_size = Vector2(640, 360)
+scene_properties_keys = PackedStringArray()

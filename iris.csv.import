@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://b6mmri3pdlbbd"
+
+[deps]
+
+files=["res://iris.sepal.width.translation", "res://iris.petal.length.translation", "res://iris.petal.width.translation", "res://iris.variety.translation"]
+
+source_file="res://iris.csv"
+dest_files=["res://iris.sepal.width.translation", "res://iris.petal.length.translation", "res://iris.petal.width.translation", "res://iris.variety.translation"]
+
+[params]
+
+compress=true
+delimiter=0
